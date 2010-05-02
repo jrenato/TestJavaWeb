@@ -3,14 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"> 
  <head>
-  <title>enter your name page</title>
+  <title>resultado</title>
  </head>
  <body>
    <f:view>
      <h1>
-     <h:form id="aax">
-       <h:inputText id="txt" value="#{testeBean.nome}" />
-       <h:commandButton id="submeter" actionListener="#{testeBean.submeta}" action="#{testeBean.submeter}" />
+     <h:form>
+       Você submeteu: <h:outputText value="#{testeBean.nome}" />
      </h:form>
    </f:view>
  </body>
