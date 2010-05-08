@@ -1,0 +1,7 @@
+Both articles were written for PHP, but I don't believe it would be hard do convert them to Java.
+
+Information on Geocoding (converting an address into a set of latitute/longitude coordinates):
+http://code.google.com/apis/maps/articles/phpsqlgeocode.html
+
+Creating a store locator:
+http://code.google.com/apis/maps/articles/phpsqlsearch.html
