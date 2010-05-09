@@ -1,7 +1,65 @@
-Both articles were written for PHP, but I don't believe it would be hard do convert them to Java.
+TODO: pesquisar equivalente a urlencoder() no Java. Como escapar acentos e espaços na URL?
+
+TODO: pesquisar melhor método/biblioteca pra manipular XML no Java.
+Seria o JAXB a melhor estratégia?
+http://www.vogella.de/articles/JavaXML/article.html
+
+--- GOOGLE ---
 
 Information on Geocoding (converting an address into a set of latitute/longitude coordinates):
 http://code.google.com/apis/maps/articles/phpsqlgeocode.html
 
 Creating a store locator:
 http://code.google.com/apis/maps/articles/phpsqlsearch.html
+
+API do Google Maps:
+http://code.google.com/intl/pt-BR/apis/maps/documentation/services.html
+
+Para acessar o Geocodificador da API do Google Maps, envie uma solicitação para http://maps.google.com/maps/geo?  com os seguintes parâmetros no URI:
+
+* q (obrigatório) – O endereço que deseja geocodificar.
+* key (obrigatório) – Sua chave de API.
+* sensor (obrigatório) – Indica se a solicitação de geocodificação vem de um dispositivo com sensor de localização. Esse valor deve ser true ou false.
+* output (obrigatório) – O formato em que o resultado deve ser gerado. As opções são xml, kml, csv ou json (padrão).
+* ll (opcional) – A {latitude,longitude} do centro da janela de visualização expressa como uma string separada por vírgulas (por exemplo, "ll=40.479581,-117.773438" ). Esse parâmetro tem sentido apenas se o parâmetro spn também for passado ao geocodificador.
+* spn (opcional) – O "span" (intervalo) da janela de visualização expresso como uma string separada por vírgulas de {latitude,longitude} (por exemplo, "spn=11.1873,22.5"). Esse parâmetro tem sentido apenas se o parâmetro ll também for passado ao geocodificador.
+* gl (opcional) – O código do país, especificado como um valor ccTLD ("domínio de nível superior") de dois caracteres.
+
+Exemplo (colocar API key correta no final da URL):
+http://maps.google.com/maps/geo?q=Av.+Paulista,+1578+-+Brasil+-+Sao+Paulo+-+SP&output=xml&oe=utf8\&sensor=true_or_false&key=chaveapigoogles
+
+Este exemplo retorna um arquivo XML.
+
+--- YAHOO ---
+
+Geocoding do Yahoo:
+http://developer.yahoo.com/maps/rest/V1/geocode.html
+
+Request URL
+http://local.yahooapis.com/MapsService/V1/geocode
+
+Request parameters
+* appid  	string (required)  	The application ID. See Application IDs  for more information.
+* street 	string 	Street name. The number is optional.
+* city 		string 	City name.
+* state 	string 	The United States state. You can spell out the full state name or you can use the two-letter abbreviation.
+* zip 		integer or <integer>-<integer> 	The five-digit zip code, or the five-digit code plus four-digit extension. If this location contradicts the city and state specified, the zip code will be used for determining the location and the city and state will be ignored.
+* location 	free text 	
+
+This free field lets users enter any of the following:
+
+    * city, state
+    * city, state, zip
+    * zip
+    * street, city, state
+    * street, city, state, zip
+    * street, zip
+
+If location is specified, it will take priority over the individual fields in determining the location for the query. City, state and zip will be ignored.
+
+* output 	string: xml (default), php 	The format for the output. If php is requested, the results will be returned in Serialized PHP format.
+
+Exemplo:
+http://local.yahooapis.com/MapsService/V1/geocode?appid=YD-9G7bey8_JXxQP6rxl.fBFGgCdNjoDMACQA--&street=Av+Paulista,+1578&city=Sao+Paulo
+
+Este exemplo retorna um arquivo XML.
