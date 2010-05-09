@@ -1,0 +1,82 @@
+--- GOOGLE ---
+
+API do Google Maps:
+http://code.google.com/intl/pt-BR/apis/maps/documentation/services.html
+
+Basics
+http://code.google.com/apis/maps/articles/phpsqlajax.html
+
+Geocoding Addresses:
+http://code.google.com/apis/maps/articles/phpsqlgeocode.html
+
+Searching:
+http://code.google.com/apis/maps/articles/phpsqlsearch.html
+
+Exemplo de requisicao HTTP, e como obter chave:
+http://maps.google.com/maps/geo?q=Av.+Paulista,+1578+-+Brasil+-+Sao+Paulo+-+SP&amp;output=xml&amp;oe=utf8&amp;sensor=true_or_false&amp;key=chaveapigoogles
+http://code.google.com/intl/pt-BR/apis/maps/signup.html
+
+
+--- YAHOO ---
+
+TODO: organizar depois
+
+Geocoding do Yahoo:
+http://developer.yahoo.com/maps/rest/V1/geocode.html
+
+Request URL
+http://local.yahooapis.com/MapsService/V1/geocode
+
+Request parameters
+* appid string (required) The application ID. See Application IDs for more information. * street string Street name. The number is optional. * city string City name. * state string The United States state. You can spell out the full state name or you can use the two-letter abbreviation. * zip integer or - The five-digit zip code, or the five-digit code plus four-digit extension. If this location contradicts the city and state specified, the zip code will be used for determining the location and the city and state will be ignored. * location free text
+
+This free field lets users enter any of the following:
+
+* city, state
+* city, state, zip
+* zip
+* street, city, state
+* street, city, state, zip
+* street, zip
+
+If location is specified, it will take priority over the individual fields in determining the location for the query. City, state and zip will be ignored.
+
+    * output string: xml (default), php The format for the output. If php is requested, the results will be returned in Serialized PHP format.
+
+Exemplo:
+http://local.yahooapis.com/MapsService/V1/geocode?appid=YD-9G7bey8_JXxQP6rxl.fBFGgCdNjoDMACQA--&amp;street=Av+Paulista,+1578&amp;city=Sao+Paulo
+
+Este exemplo retorna um arquivo XML.
+
+TODO: pesquisar equivalente a urlencoder() no Java. Como escapar acentos e espaços na URL?
+
+TODO: pesquisar melhor método/biblioteca pra manipular XML no Java (algo equivalente ao simpleXML?)
+
+Talvez o JAXB?
+http://www.vogella.de/articles/JavaXML/article.html
+
+
+
+-------
+
+
+
+
+Yahoo também precisa de chave (a tal appid). Bleh.
+
+http://developer.yahoo.com/faq/index.html#appid
+
+http://developer.yahoo.com/wsregapp/
+
+
+
+
+
+
+
+
+
+
+
+
+
