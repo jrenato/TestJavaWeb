@@ -9,10 +9,27 @@
 		<managed-bean-class>br.com.teste.TesteBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+    <managed-bean>
+        <managed-bean-name>pessoaBean</managed-bean-name>
+        <managed-bean-class>br.com.teste.apresentacao.managedbean.PessoaBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
     <navigation-rule>
         <navigation-case>
             <from-outcome>submeter</from-outcome>
             <to-view-id>/result.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>pessoaSelecionada</from-outcome>
+            <to-view-id>/pessoaEdit.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>pessoaAtualizada</from-outcome>
+            <to-view-id>/pessoa.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

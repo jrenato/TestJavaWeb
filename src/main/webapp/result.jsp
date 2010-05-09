@@ -9,8 +9,8 @@
    <f:view>
      <h1>
      <h:form>
-       Você submeteu: <h:outputText value="#{testeBean.nome}" />
+       VocÃª submeteu: <h:outputText value="#{testeBean.nome}" />
      </h:form>
    </f:view>
  </body>
-</html> 
+</html>
