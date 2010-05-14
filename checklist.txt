@@ -1,0 +1,38 @@
+1)Modelo de dominio
+
+É o POJO (Plain Old Java Object).
+http://en.wikipedia.org/wiki/Plain_Old_Java_Object
+Exemplo: Pessoa.java em br.com.teste.negocio.dominio.pessoa
+
+2)Script de banco
+
+É o arquivo .SQL que cria o BD, as tabelas e insere alguns dados para teste.
+Exemplo: /docs/dumTestJavaWeb.sql
+
+3)Mapeamento do hibernate
+
+É o arquivo .hbm.xml que cria o mapeamento entre tabelas do BD e POJOs (item #1).
+Adiciona-se também o mapeado no hibernage.cfg.xml
+Exemplo: Pessoa.hbm.xml
+
+4)DAO
+
+Seu propósito é fornecer métodos de acesso/escrita (Create, Retrieve, Update e Delete) aos dados mapeados no Hibernate.
+Estes métodos serão acessados pelo Service (a camada de negócios).
+Neste projeto, é uma subclasse de AbstractDAO.java, para evitar duplicação de código.
+Exemplo: PessoaDAO.java em br.com.teste.persistencia.java
+
+5)Service
+
+É onde estão as regras de negócios. Serve de ponte entre o Bean (o Controller) e o DAO.
+Pode-se dizer que POJO mapeado com o DAO + Service = Model?
+Exemplo: PessoaService.java em br.com.teste.negocio.servico.pessoa
+
+6)Bean
+
+É equivalente ao Controller. Administra as requisições do JSP (a View), despachando-as para os Services necessários.
+Adiciona-se a configuração do <managed-bean> ao faces-config.xml para acoplá-lo à(s) sua(s) respectiva(s) JSP(s).
+
+7)JSP
+
+View.
