@@ -32,4 +32,10 @@
             <to-view-id>/pessoa.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>pessoaApagada</from-outcome>
+            <to-view-id>/pessoaDel.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>    
 </faces-config>

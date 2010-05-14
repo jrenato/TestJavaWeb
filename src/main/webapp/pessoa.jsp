@@ -22,8 +22,14 @@
                 <f:facet name="header"><h:outputText value="Email" /></f:facet>
                 <h:outputText value="#{pessoa.email}" />
             </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Apagar" /></f:facet>
+                <h:commandLink action="#{pessoaBean.apagar}">
+                    Delete-me
+                </h:commandLink>
+            </h:column>            
         </h:dataTable>
      </h:form>
    </f:view>
  </body>
-</html> 
+</html>

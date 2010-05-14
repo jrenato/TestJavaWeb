@@ -12,7 +12,7 @@
 -- Started on 2010-05-04 20:30:32 BRT
 
 SET statement_timeout = 0;
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UTF8';
 SET standard_conforming_strings = off;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
@@ -23,7 +23,7 @@ SET escape_string_warning = off;
 -- Name: testJavaWeb; Type: DATABASE; Schema: -; Owner: testJavaWeb
 --
 
--- CREATE DATABASE "testJavaWeb" WITH TEMPLATE = template0 ENCODING = 'LATIN1' LC_COLLATE = 'C' LC_CTYPE = 'en_US';
+-- CREATE DATABASE "testJavaWeb" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'pt_BR';
 
 
 ALTER DATABASE "testJavaWeb" OWNER TO "testJavaWeb";
@@ -31,7 +31,7 @@ ALTER DATABASE "testJavaWeb" OWNER TO "testJavaWeb";
 \connect "testJavaWeb"
 
 SET statement_timeout = 0;
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UTF8';
 SET standard_conforming_strings = off;
 SET check_function_bodies = false;
 SET client_min_messages = warning;

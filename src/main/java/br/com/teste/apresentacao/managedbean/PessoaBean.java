@@ -79,5 +79,20 @@ public class PessoaBean {
 		// retorna chave para a navegação
 		return "pessoaAtualizada";
 	}
+	
+	public String apagar() {
 
+		pessoaService.apagar(pessoaSelecionada);
+
+		// retorna chave para a navegação
+		return "pessoaApagada";
+	}
+	
+	public String atualizar() {
+
+		pessoaService.atualizar(pessoaSelecionada);
+
+		// retorna chave para a navegação
+		return "pessoaAtualizada";
+	}
 }
