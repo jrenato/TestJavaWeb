@@ -27,8 +27,13 @@
                 <h:commandLink action="#{pessoaBean.apagar}">
                     Delete-me
                 </h:commandLink>
-            </h:column>            
+            </h:column>
         </h:dataTable>
+
+        <h:commandLink action="#{pessoaBean.criar}">
+            Cadastrar Nova Pessoa
+        </h:commandLink>
+        
      </h:form>
    </f:view>
  </body>

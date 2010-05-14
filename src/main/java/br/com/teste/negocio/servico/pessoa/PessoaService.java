@@ -38,4 +38,8 @@ public class PessoaService {
 	public void atualizar(Pessoa pessoa) {
 		pessoaDAO.atualizar(pessoa);
 	}
+	
+	public void criar() {
+		pessoaDAO.criar();
+	}
 }

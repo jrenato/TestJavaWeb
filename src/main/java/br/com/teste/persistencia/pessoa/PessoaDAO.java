@@ -115,5 +115,11 @@ public class PessoaDAO extends AbstractDAO {
 	public void atualizar(Pessoa pessoa) {
 		
 		return;
+	}
+	
+	public void criar() {
+		
+		// Deveria retornar uma pessoa em branco?
+		return;
 	}	
 }

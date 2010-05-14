@@ -37,5 +37,12 @@
             <from-outcome>pessoaApagada</from-outcome>
             <to-view-id>/pessoaDel.jsp</to-view-id>
         </navigation-case>
-    </navigation-rule>    
+    </navigation-rule>
+    
+	<navigation-rule>
+        <navigation-case>
+            <from-outcome>pessoaCriada</from-outcome>
+            <to-view-id>/pessoaEdit.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
 </faces-config>
