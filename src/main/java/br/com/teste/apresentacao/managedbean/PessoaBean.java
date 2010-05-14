@@ -97,11 +97,9 @@ public class PessoaBean {
 	}
 	
 	public String criar() {
-
-		pessoaService.criar();
-
-		// Esta chave induz a um erro, a pessoa ainda não foi criada, o que foi criado foi um
-		// formulário em branco para permitir a criação de uma nova pessoa.
-		return "pessoaCriada";
-	}	
+		this.pessoaSelecionada = new Pessoa();
+		
+		// retorna chave para a navegação
+		return "pessoaCriada";		
+	}
 }

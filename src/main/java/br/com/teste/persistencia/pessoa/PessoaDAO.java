@@ -116,10 +116,4 @@ public class PessoaDAO extends AbstractDAO {
 		
 		return;
 	}
-	
-	public void criar() {
-		
-		// Deveria retornar uma pessoa em branco?
-		return;
-	}	
 }
