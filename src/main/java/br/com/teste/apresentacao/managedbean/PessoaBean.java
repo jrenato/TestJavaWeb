@@ -52,10 +52,8 @@ public class PessoaBean {
 	 * @return Lista de pessoas do sistema
 	 */
 	public DataModel<Pessoa> getPessoas() {
-		if (pessoas == null) {
-			pessoas = pessoaService.obterPessoas();
-			pessoasModel.setWrappedData(pessoas);
-		}
+		pessoas = pessoaService.obterPessoas();
+		pessoasModel.setWrappedData(pessoas);
 		return pessoasModel;
 	}
 
