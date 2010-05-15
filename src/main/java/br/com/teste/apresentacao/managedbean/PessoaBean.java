@@ -81,25 +81,18 @@ public class PessoaBean {
 	}
 	
 	public String apagar() {
-
+		
+		this.pessoaSelecionada = (Pessoa) pessoasModel.getRowData();
 		pessoaService.apagar(pessoaSelecionada);
 
 		// retorna chave para a navegação
 		return "pessoaApagada";
 	}
 	
-	public String atualizar() {
-
-		pessoaService.atualizar(pessoaSelecionada);
-
-		// retorna chave para a navegação
-		return "pessoaAtualizada";
-	}
-	
 	public String criar() {
 		this.pessoaSelecionada = new Pessoa();
 		
 		// retorna chave para a navegação
-		return "pessoaCriada";		
+		return "pessoaSelecionada";		
 	}
 }

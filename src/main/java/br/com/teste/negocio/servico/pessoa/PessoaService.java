@@ -34,8 +34,4 @@ public class PessoaService {
 	public void apagar(Pessoa pessoa) {
 		pessoaDAO.apagar(pessoa);
 	}
-	
-	public void atualizar(Pessoa pessoa) {
-		pessoaDAO.atualizar(pessoa);
-	}
 }

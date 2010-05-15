@@ -108,12 +108,27 @@ public class PessoaDAO extends AbstractDAO {
 	}
 	
 	public void apagar(Pessoa pessoa) {
-		
-		return;
-	}
-	
-	public void atualizar(Pessoa pessoa) {
-		
-		return;
+		Session s = null;
+		Transaction tx = null;
+
+		try {
+			try {
+				s = getSessionFactory().openSession();
+				tx = s.beginTransaction();
+					
+				s.delete(pessoa);
+				tx.commit();
+			} catch (HibernateException ex) {
+				tx.rollback();
+				throw ex;
+			} finally {
+				if (s != null)
+					s.close();
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+		return;		
 	}
 }
