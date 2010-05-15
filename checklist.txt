@@ -3,6 +3,8 @@
 É o POJO (Plain Old Java Object).
 http://en.wikipedia.org/wiki/Plain_Old_Java_Object
 Exemplo: Pessoa.java em br.com.teste.negocio.dominio.pessoa
+POJO é a forma como estamos usando neste projeto, e é a forma mais comum hoje 
+em dia; existe outra forma (EJB), mas está sendo pouco usada pela complexidade.
 
 2)Script de banco
 
@@ -12,7 +14,7 @@ Exemplo: /docs/dumTestJavaWeb.sql
 3)Mapeamento do hibernate
 
 É o arquivo .hbm.xml que cria o mapeamento entre tabelas do BD e POJOs (item #1).
-Adiciona-se também o mapeado no hibernage.cfg.xml
+Adiciona-se também o mapeado no hibernate.cfg.xml
 Exemplo: Pessoa.hbm.xml
 
 4)DAO
@@ -21,12 +23,24 @@ Seu propósito é fornecer métodos de acesso/escrita (Create, Retrieve, Update e D
 Estes métodos serão acessados pelo Service (a camada de negócios).
 Neste projeto, é uma subclasse de AbstractDAO.java, para evitar duplicação de código.
 Exemplo: PessoaDAO.java em br.com.teste.persistencia.java
+A lógica repetitiva é abstraída no AbstractDAO, deixando para as classes 
+apenas a chamada ao método "executar", passando os parâmetros corretos. Se o 
+cliente quiser, ainda pode sobrecrever os métodos "executarConsulta", 
+"executarGravacao" e "executarExclusao", para definir comportamentos específicos
+destas características do CRUD em cada entidade.
 
 5)Service
 
 É onde estão as regras de negócios. Serve de ponte entre o Bean (o Controller) e o DAO.
 Pode-se dizer que POJO mapeado com o DAO + Service = Model?
 Exemplo: PessoaService.java em br.com.teste.negocio.servico.pessoa
+Geralmente, o Service acumula as duas responsabilidades acima citadas. De forma 
+simplista, O POJO é apenas um objeto que representa uma tabela no banco. 
+As três camadas usam este objeto para comunicação, ou seja: a camada de apresentação
+(ManagedBean) prepara o POJO, e envia para a camada de serviço, que pode aplicar
+alguma regra sobre ele e/ou passar para a camada de persistência, para sincronizar
+os dados daquele POJO na base de dados. O Hibernate controla se deve incluir ou 
+editar um registro já existente. 
 
 6)Bean
 
@@ -35,4 +49,5 @@ Adiciona-se a configuração do <managed-bean> ao faces-config.xml para acoplá-lo 
 
 7)JSP
 
-View.
+View. Utiliza EL (Expression language) para se comunicar com os ManagedBeans.
+ManagedBean é um conceito do JSF (no JSP puro, a cominicação é com servlets).
