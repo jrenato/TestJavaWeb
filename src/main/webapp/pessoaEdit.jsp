@@ -12,7 +12,7 @@
         <br />
         Email: <h:inputText value="#{pessoaBean.pessoaSelecionada.email}" />
         <br />
-        <h:commandButton action="#{pessoaBean.gravar}" />
+        <h:commandButton value="OK" action="#{pessoaBean.gravar}" />
      </h:form>
    </f:view>
  </body>

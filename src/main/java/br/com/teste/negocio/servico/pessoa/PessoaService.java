@@ -30,4 +30,8 @@ public class PessoaService {
 	public void gravar(Pessoa pessoa) {
 		pessoaDAO.gravar(pessoa);
 	}
+	
+	public void apagar(Pessoa pessoa) {
+		pessoaDAO.apagar(pessoa);
+	}
 }
