@@ -32,5 +32,4 @@ public class PessoaDAO extends AbstractDAO {
 	public void apagar(Pessoa pessoa) {
 		executar(pessoa, ACAO_CRUD.EXCLUIR, null);
 	}
-
 }
