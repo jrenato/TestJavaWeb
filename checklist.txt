@@ -14,7 +14,7 @@ Exemplo: /docs/dumTestJavaWeb.sql
 3)Mapeamento do hibernate
 
 É o arquivo .hbm.xml que cria o mapeamento entre tabelas do BD e POJOs (item #1).
-Adiciona-se também o mapeado no hibernate.cfg.xml
+Adiciona-se também o mapeamento no hibernate.cfg.xml
 Exemplo: Pessoa.hbm.xml
 
 4)DAO
@@ -49,5 +49,5 @@ Adiciona-se a configuração do <managed-bean> ao faces-config.xml para acoplá-lo 
 
 7)JSP
 
-View. Utiliza EL (Expression language) para se comunicar com os ManagedBeans.
-ManagedBean é um conceito do JSF (no JSP puro, a cominicação é com servlets).
+View. Utiliza EL (Expression Language) para se comunicar com os ManagedBeans.
+ManagedBean é um conceito do JSF (no JSP puro, a comunicação é com servlets).
