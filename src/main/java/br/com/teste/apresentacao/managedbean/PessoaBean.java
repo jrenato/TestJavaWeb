@@ -36,6 +36,14 @@ public class PessoaBean {
 	private DataModel<Pessoa> pessoasModel = new ListDataModel<Pessoa>();
 	private PessoaService pessoaService;
 
+	private int idade;
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
 	// para edição
 	private Pessoa pessoaSelecionada;
 

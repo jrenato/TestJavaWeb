@@ -9,35 +9,46 @@
 		<managed-bean-class>br.com.teste.TesteBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-    <managed-bean>
-        <managed-bean-name>pessoaBean</managed-bean-name>
-        <managed-bean-class>br.com.teste.apresentacao.managedbean.PessoaBean</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-    <navigation-rule>
-        <navigation-case>
-            <from-outcome>submeter</from-outcome>
-            <to-view-id>/result.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <navigation-case>
-            <from-outcome>pessoaSelecionada</from-outcome>
-            <to-view-id>/pessoaEdit.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-        <navigation-case>
-            <from-outcome>pessoaAtualizada</from-outcome>
-            <to-view-id>/pessoa.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-        <navigation-case>
-            <from-outcome>pessoaApagada</from-outcome>
-            <to-view-id>/pessoa.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule> 
+	<managed-bean>
+		<managed-bean-name>pessoaBean</managed-bean-name>
+		<managed-bean-class>br.com.teste.apresentacao.managedbean.PessoaBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>submeter</from-outcome>
+			<to-view-id>/result.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>pessoaSelecionada</from-outcome>
+			<to-view-id>/pessoaEdit.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>pessoaAtualizada</from-outcome>
+			<to-view-id>/pessoa.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>pessoaApagada</from-outcome>
+			<to-view-id>/pessoa.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<validator>
+		<validator-id>emailValidator</validator-id>
+		<validator-class>br.com.teste.apresentacao.managedbean.EmailValidator</validator-class>
+	</validator>
+
+	<application>
+		<locale-config>
+            <default-locale>pt_BR</default-locale>
+		</locale-config>
+	</application>
 </faces-config>
