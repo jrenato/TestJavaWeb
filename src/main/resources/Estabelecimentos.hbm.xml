@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="br.com.radar.negocio.dominio">
+	<class name="Estabelecimento" table="`ESTABELECIMENTO`">
+		<id name="id" type="int" column="`ID`">
+	    	<generator class="increment" />
+	    </id>
+	    
+	    <property name="nome" column="`NOME`" type="string" not-null="true" />
+	     
+		<many-to-one name="coordenada" class="Coordenada" column="FK_COORDENADA_ID"/>
+		<many-to-one name="endereco" class="Endereco" column="FK_ENDERECO_ID"/>       
+	</class>
+	
+	<class name="Coordenada" table="`COORDENADA`">
+		<id name="id" type="int" column="`ID`">
+	    	<generator class="increment" />
+	    </id>
+	    <property name="latitude" column="`LATITUDE`" type="double" not-null="true" />
+	    <property name="longitude" column="`LONGITUDE`" type="double" not-null="true" />
+	</class>
+	  
+	<class name="Endereco" table="`ENDERECO`">
+		<id name="id" type="int" column="`ID`">
+	    	<generator class="increment" />
+		</id>
+	    <property name="logradouro" column="`LOGRADOURO`" type="string" not-null="true" />
+	    <property name="numero" column="`NUMERO`" type="integer" not-null="true" />
+	    <property name="bairro" column="`BAIRRO`" type="string" not-null="true" />
+	    <property name="cidade" column="`CIDADE`" type="string" not-null="true" />
+	    <property name="estado" column="`ESTADO`" type="string" not-null="true" />
+	</class>    
+</hibernate-mapping>

@@ -29,6 +29,8 @@ cliente quiser, ainda pode sobrecrever os métodos "executarConsulta",
 "executarGravacao" e "executarExclusao", para definir comportamentos específicos
 destas características do CRUD em cada entidade.
 
+TODO: investigar como eliminar código duplicado entre DAOs de diferentes entidades (generics?)
+
 5)Service
 
 É onde estão as regras de negócios. Serve de ponte entre o Bean (o Controller) e o DAO.

@@ -3,13 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"> 
  <head>
-  <title>resultado</title>
+  <title>Confirmação</title>
  </head>
  <body>
    <f:view>
      <h1>
      <h:form>
-       Pessoa apagada com sucesso />
+       Tela para futura confirmação de remoção />
      </h:form>
    </f:view>
  </body>
