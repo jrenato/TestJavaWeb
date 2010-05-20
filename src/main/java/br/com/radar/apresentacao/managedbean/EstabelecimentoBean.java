@@ -64,10 +64,12 @@ public class EstabelecimentoBean {
 		 *  org.hibernate.LazyInitializationException: could not initialize proxy - no Session
 		 */ 
 
+		/*
 		for (Estabelecimento e : estabelecimentos){
 			e.getEndereco().getLogradouro();
 			e.getEndereco().getNumero();
 		}
+		*/
 		
 		estabelecimentosModel.setWrappedData(estabelecimentos);
 		
