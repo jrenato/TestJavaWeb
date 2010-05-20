@@ -4,17 +4,36 @@
 	"-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
  	"http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config>
+	
+	<!-- Managed Bean de Estabelecimento -->
+	
+	<managed-bean>
+		<managed-bean-name>estabelecimentoBean</managed-bean-name>
+		<managed-bean-class>br.com.radar.apresentacao.managedbean.EstabelecimentoBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- Navigation rules de Estabelecimento -->
+	
+	<!--
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>estabelecimentoSelecionado</from-outcome>
+			<to-view-id>/estabelecimentoEdit.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	-->	
+	
+	<!-- Managed Bean de Pessoa -->
+	
 	<managed-bean>
 		<managed-bean-name>pessoaBean</managed-bean-name>
 		<managed-bean-class>br.com.teste.apresentacao.managedbean.PessoaBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>submeter</from-outcome>
-			<to-view-id>/result.jsp</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+	
+	<!-- Navigation rules de Pessoa -->
+
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>pessoaSelecionada</from-outcome>
