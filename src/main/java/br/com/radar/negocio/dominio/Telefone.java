@@ -4,6 +4,7 @@ public class Telefone {
 	private int id;
 	private String numero;
 	private String tipo;
+	private String endereco;
 	
 	public int getId() {
 		return id;
@@ -22,5 +23,11 @@ public class Telefone {
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getEndereco() {
+		return endereco;
 	}
 }
