@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://www.medman.com/" prefix="d" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml"> 
  <head>
@@ -8,6 +9,7 @@
  <body>
    <f:view>
      <h:form id="form">
+     
         Lista de pessoas da base de dados: 
         <br />
         
