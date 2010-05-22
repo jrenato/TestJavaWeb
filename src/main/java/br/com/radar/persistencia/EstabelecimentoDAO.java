@@ -1,14 +1,16 @@
 package br.com.radar.persistencia;
 
 import java.util.List;
+
+import org.hibernate.Session;
+
 import br.com.radar.negocio.dominio.Estabelecimento;
-import br.com.radar.negocio.dominio.Endereco;
 
 public class EstabelecimentoDAO extends AbstractDAO {
 
 	public List<Estabelecimento> obterEstabelecimentos() {
 		return (List<Estabelecimento>) executar(null, ACAO_CRUD.CONSULTAR,
-				"FROM Estabelecimento p ORDER BY p.id");
+				"FROM Estabelecimento e ORDER BY e.id");
 	}
 	
 	public Estabelecimento gravar(Estabelecimento estabelecimento) {
@@ -17,28 +19,37 @@ public class EstabelecimentoDAO extends AbstractDAO {
 	
 	public void apagar(Estabelecimento estabelecimento) {
 		executar(estabelecimento, ACAO_CRUD.EXCLUIR, null);
-	}	
+	}
 	
 	/*
-	 * As coisas começaram a não fazer muito sentido depois de um tempo.
-	 * Um DAO pra cada entidade? O que viria depois? Um Service pra cada um também?
-	 * Muito código duplicado. Eu sabia que estava fazendo algo errado, só não sabia o quê.
+	 * Após ler este artigo
+	 * http://www.javalobby.org/java/forums/t20533.html
 	 * 
-	 * Comecei a formular duas hipóteses:
+	 * Sobrescrevi executarConsulta para que já carregue algumas informações de Endereco,
+	 * apenas para confirmar se de fato era esta a causa do LazyInitializationException
 	 * 
-	 * 1) Um DAO único (Estabelecimento), e este gerencia tudo (bagunça warning?).
-	 * 2) Um DAO pra cada entidade, porém um único Service. Coerente, mas ainda preocupante.
+	 * Resultado:
+	 * org.hibernate.exception.SQLGrammarException: could not load an entity: 
+	 * [br.com.radar.negocio.dominio.Endereco#1]
 	 * 
-	 * Ainda não ficou claro também o que o Hibernate espera que eu faça sobre os mapeamentos.
+	 * Teoria: erro de configuração em Estabelecimentos.hbm.xml
 	 * 
-	 * Os métodos a seguir representam minha primeira tentativa (hipótese #1) de descobrir 
-	 * a melhor solução.
+	 * Resolvido. De fato, era erro de configuração em Estabelecimentos.hbm.xml
 	 * 
-	 */
+	 * Agora funciona, embora precariamente. Carregar Enderecos dentro de Estabelecimentos
+	 * não me parece a forma correta de resolver o problema.
+	 * 
+	*/
 	
-	public Endereco obterEndereco(Estabelecimento estabelecimento) {
+	protected <T> List<T> executarConsulta(Session session, String query) {
 		
-		return (Endereco) executar(null, ACAO_CRUD.CONSULTAR,
-				"FROM Endereco");
+		List<T> estabelecimentos = (List<T>) session.createQuery(query).list();
+		
+		for (T e : estabelecimentos){
+			((Estabelecimento)e).getEndereco().getLogradouro();
+			((Estabelecimento)e).getEndereco().getNumero();
+		}
+		
+		return estabelecimentos;
 	}
 }

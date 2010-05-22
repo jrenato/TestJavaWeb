@@ -7,7 +7,7 @@ public class CoordenadaDAO extends AbstractDAO {
 
 	public List<Coordenada> obterCoordenadas() {
 		return (List<Coordenada>) executar(null, ACAO_CRUD.CONSULTAR,
-				"FROM Coordenada p ORDER BY p.id");
+				"FROM Coordenada c ORDER BY c.id");
 	}
 	
 	public Coordenada gravar(Coordenada coordenada) {

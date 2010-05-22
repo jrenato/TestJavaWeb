@@ -11,8 +11,8 @@
 	    
 	    <property name="nome" column="`NOME`" type="string" not-null="true" />
 	     
-		<many-to-one name="coordenada" class="Coordenada" column="FK_COORDENADA_ID"/>
-		<many-to-one name="endereco" class="Endereco" column="FK_ENDERECO_ID"/>       
+		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true"/>
+		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" unique="true"/>       
 	</class>
 	
 	<class name="Coordenada" table="`COORDENADA`">
@@ -32,5 +32,15 @@
 	    <property name="bairro" column="`BAIRRO`" type="string" not-null="true" />
 	    <property name="cidade" column="`CIDADE`" type="string" not-null="true" />
 	    <property name="estado" column="`ESTADO`" type="string" not-null="true" />
-	</class>    
+	</class>
+	
+   	<class name="Telefone" table="`TELEFONE`">
+		<id name="id" type="int" column="`ID`">
+   			<generator class="increment" />
+		</id>
+		<property name="numero" column="`NUMERO`" type="string" not-null="true" />
+		<property name="tipo" column="`TIPO`" type="string" not-null="true" />
+		
+		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`"/>			
+	</class>
 </hibernate-mapping>

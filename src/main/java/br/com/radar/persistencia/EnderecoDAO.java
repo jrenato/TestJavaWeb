@@ -7,7 +7,7 @@ public class EnderecoDAO extends AbstractDAO {
 
 	public List<Endereco> obterEnderecos() {
 		return (List<Endereco>) executar(null, ACAO_CRUD.CONSULTAR,
-				"FROM Endereco p ORDER BY p.id");
+				"FROM Endereco e ORDER BY e.id");
 	}
 	
 	public Endereco gravar(Endereco endereco) {
