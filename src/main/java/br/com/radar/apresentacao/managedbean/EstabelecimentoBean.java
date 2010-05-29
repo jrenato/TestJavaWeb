@@ -6,6 +6,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import br.com.radar.negocio.dominio.Estabelecimento;
+import br.com.radar.negocio.dominio.Endereco;
 import br.com.radar.negocio.servico.EstabelecimentoService;
 
 public class EstabelecimentoBean {
@@ -53,7 +54,7 @@ public class EstabelecimentoBean {
 		return estabelecimentoSelecionado;
 	}
 
-	public void setPessoaSelecionada(Estabelecimento estabelecimentoSelecionado) {
+	public void setEstabelecimentoSelecionado(Estabelecimento estabelecimentoSelecionado) {
 		this.estabelecimentoSelecionado = estabelecimentoSelecionado;
 	}
 
@@ -81,6 +82,7 @@ public class EstabelecimentoBean {
 	
 	public String criar() {
 		this.estabelecimentoSelecionado = new Estabelecimento();
+		estabelecimentoSelecionado.setEndereco(new Endereco());
 		
 		// retorna chave para a navegação
 		return "estabelecimentoSelecionado";		

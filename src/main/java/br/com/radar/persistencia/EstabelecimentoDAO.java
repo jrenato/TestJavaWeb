@@ -41,6 +41,8 @@ public class EstabelecimentoDAO extends AbstractDAO {
 	 * 
 	*/
 	/*
+	
+	// Temporariamente desnecessário, Lazy Loading está desativado
 	protected <T> List<T> executarConsulta(Session session, String query) {
 		
 		List<T> estabelecimentos = (List<T>) session.createQuery(query).list();
