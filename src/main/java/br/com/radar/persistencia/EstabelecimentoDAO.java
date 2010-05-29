@@ -25,8 +25,8 @@ public class EstabelecimentoDAO extends AbstractDAO {
 	 * Após ler este artigo
 	 * http://www.javalobby.org/java/forums/t20533.html
 	 * 
-	 * Sobrescrevi executarConsulta para que já carregue algumas informações de Endereco,
-	 * apenas para confirmar se de fato era esta a causa do LazyInitializationException
+	 * Sobrescrevi executarConsulta para já carregar Endereco, apenas 
+	 * para confirmar se de fato era esta a causa do LazyInitializationException
 	 * 
 	 * Resultado:
 	 * org.hibernate.exception.SQLGrammarException: could not load an entity: 
@@ -40,7 +40,7 @@ public class EstabelecimentoDAO extends AbstractDAO {
 	 * não me parece a forma correta de resolver o problema.
 	 * 
 	*/
-	
+	/*
 	protected <T> List<T> executarConsulta(Session session, String query) {
 		
 		List<T> estabelecimentos = (List<T>) session.createQuery(query).list();
@@ -52,4 +52,5 @@ public class EstabelecimentoDAO extends AbstractDAO {
 		
 		return estabelecimentos;
 	}
+	*/
 }

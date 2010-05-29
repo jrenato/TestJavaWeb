@@ -26,8 +26,11 @@ public class EstabelecimentoBean {
 		/*
 		 *  Ideia retirada daqui
 		 *  http://www.guj.com.br/posts/list/78781.java
-		 *  Mas não deu certo, a sessão continua fechada quando chega aqui
-		 *  O problema precisa ser resolvido em EstabelecimentoDAO, e não aqui
+		 *  Mas não deu certo, óbvio, a sessão continua fechada quando chega aqui
+		 *  O problema precisa ser resolvido:
+		 *  
+		 *  1) Em EstabelecimentoDAO, ou
+		 *  2) Na configuração do Hibernate sobre Lazy Loading
 		 *  
  		 *  Error reading 'estabelecimentos'
 		 *  root cause

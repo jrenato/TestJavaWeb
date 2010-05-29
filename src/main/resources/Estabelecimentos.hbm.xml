@@ -3,6 +3,8 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
+<!-- Desabilitando lazy loading para fins de teste. -->
+
 <hibernate-mapping package="br.com.radar.negocio.dominio">
 	<class name="Estabelecimento" table="`ESTABELECIMENTO`">
 		<id name="id" type="int" column="`ID`">
@@ -11,8 +13,8 @@
 	    
 	    <property name="nome" column="`NOME`" type="string" not-null="true" />
 	     
-		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true"/>
-		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" unique="true"/>       
+		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true" lazy="false" />
+		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" unique="true" lazy="false" />       
 	</class>
 	
 	<class name="Coordenada" table="`COORDENADA`">
@@ -34,13 +36,13 @@
 	    <property name="estado" column="`ESTADO`" type="string" not-null="true" />
 	</class>
 	
-   	<class name="Telefone" table="`TELEFONE`">
+   	<class name="Telefone" table="`TELEFONE`" lazy="false">
 		<id name="id" type="int" column="`ID`">
    			<generator class="increment" />
 		</id>
 		<property name="numero" column="`NUMERO`" type="string" not-null="true" />
 		<property name="tipo" column="`TIPO`" type="string" not-null="true" />
 		
-		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`"/>			
+		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" lazy="false"/>			
 	</class>
 </hibernate-mapping>
