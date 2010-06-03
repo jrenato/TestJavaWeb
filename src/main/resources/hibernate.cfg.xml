@@ -8,18 +8,9 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/testJavaWeb</property>
-<<<<<<< HEAD
 
 		<property name="hibernate.connection.username">testJavaWeb</property>
         <property name="hibernate.connection.password">testJavaWeb</property>
-
-        <!-- <property name="hibernate.connection.username">postgres</property> -->
-		<!-- <property name="hibernate.connection.password">m4ryj4n3</property> -->
-=======
-		<property name="hibernate.connection.username">TestJavaWeb</property>
-		<property name="hibernate.connection.password">TestJavaWeb</property>
->>>>>>> remotes/origin/master
-
 		<property name="c3p0.min_size">5</property>
 		<property name="c3p0.max_size">20</property>
 		<property name="c3p0.timeout">300</property>
@@ -27,6 +18,8 @@
 		<property name="c3p0.idle_tes_period">3000</property>
 		
 		<property name="hibernate.show_sql">true</property>  
+
+        <property name="current_session_context_class">thread</property>  
 
 		<mapping resource="Pessoa.hbm.xml" />
 		<mapping resource="Estabelecimentos.hbm.xml" />

@@ -2,58 +2,27 @@ package br.com.radar.persistencia;
 
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import br.com.radar.util.HibernateUtil;
 
 public abstract class AbstractDAO {
-	private static final SessionFactory sf;
-
-	static {
-		Configuration cfg = new Configuration();
-		sf = cfg.configure().buildSessionFactory();
-	}
 
 	protected enum ACAO_CRUD {
 		CONSULTAR, EXCLUIR, GRAVAR
 	}
 
-	public SessionFactory getSessionFactory() {
-		return sf;
-	}
-
 	protected <E> Object executar(E entidade, ACAO_CRUD acao, String query) {
 		if (acao == null)
 			throw new IllegalArgumentException("Ação não informada");
-
-		Session s = null;
-		Transaction tx = null;
 		Object retorno = null;
 
 		try {
-			try {
-
-				s = getSessionFactory().openSession();
-
-				tx = s.beginTransaction();
-
-				if (acao.equals(ACAO_CRUD.CONSULTAR)) {
-					retorno = executarConsulta(s, query);
-				} else if (acao.equals(ACAO_CRUD.GRAVAR)) {
-					retorno = executarGravacao(s, entidade);
-				} else if (acao.equals(ACAO_CRUD.EXCLUIR)) {
-					executarExclusao(s, entidade);
-				}
-
-				tx.commit();
-			} catch (HibernateException ex) {
-				tx.rollback();
-				throw ex;
-			} finally {
-				if (s != null)
-					s.close();
+			HibernateUtil.beginTransaction();
+			if (acao.equals(ACAO_CRUD.CONSULTAR)) {
+				retorno = executarConsulta(query);
+			} else if (acao.equals(ACAO_CRUD.GRAVAR)) {
+				retorno = executarGravacao(entidade);
+			} else if (acao.equals(ACAO_CRUD.EXCLUIR)) {
+				executarExclusao(entidade);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -62,18 +31,18 @@ public abstract class AbstractDAO {
 		return retorno;
 	}
 
-	protected <T> List<T> executarConsulta(Session session, String query) {
+	protected <T> List<T> executarConsulta(String query) {
 
-		return (List<T>) session.createQuery(query).list();
+		return (List<T>) HibernateUtil.getSession().createQuery(query).list();
 	}
 
-	protected <T> T executarGravacao(Session session, T entidade) {
+	protected <T> T executarGravacao(T entidade) {
 
-		return (T) session.merge(entidade);
+		return (T) HibernateUtil.getSession().merge(entidade);
 	}
 
-	protected <T> void executarExclusao(Session session, T entidade) {
-		session.delete(entidade);
+	protected <T> void executarExclusao(T entidade) {
+		HibernateUtil.getSession().delete(entidade);
 	}
 
 }

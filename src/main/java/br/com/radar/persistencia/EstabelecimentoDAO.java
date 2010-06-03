@@ -41,8 +41,8 @@ public class EstabelecimentoDAO extends AbstractDAO {
 	 * 
 	*/
 	
+	/*
 	protected <T> List<T> executarConsulta(Session session, String query) {
-		
 		List<T> estabelecimentos = (List<T>) session.createQuery(query).list();
 		
 		for (T e : estabelecimentos){
@@ -52,4 +52,5 @@ public class EstabelecimentoDAO extends AbstractDAO {
 		
 		return estabelecimentos;
 	}
+	*/
 }

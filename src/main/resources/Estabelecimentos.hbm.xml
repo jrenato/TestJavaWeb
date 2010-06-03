@@ -8,11 +8,9 @@
 		<id name="id" type="int" column="`ID`">
 	    	<generator class="increment" />
 	    </id>
-	    
 	    <property name="nome" column="`NOME`" type="string" not-null="true" />
-	     
-		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true"/>
-		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" unique="true"/>       
+		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true" />
+        <many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" not-null="true" cascade="all" />       
 	</class>
 	
 	<class name="Coordenada" table="`COORDENADA`">
@@ -32,6 +30,20 @@
 	    <property name="bairro" column="`BAIRRO`" type="string" not-null="true" />
 	    <property name="cidade" column="`CIDADE`" type="string" not-null="true" />
 	    <property name="estado" column="`ESTADO`" type="string" not-null="true" />
+        <!-- 
+	    <set name="estabelecimentos" table="`ESTABELECIMENTO`" lazy="true" cascade="all" >
+	       <key column="`FK_ENDERECO_ID`" />
+	       <one-to-many class="Estabelecimento" />
+	    </set>
+	     -->
+	     
+        <!-- 
+        <set name="telefone" lazy="true" table="`TELEFONE`">
+            <key column="`ENDERECO_ID`" />
+            <one-to-many class="Telefone"/>
+        </set>
+         -->
+
 	</class>
 	
    	<class name="Telefone" table="`TELEFONE`">
@@ -40,7 +52,6 @@
 		</id>
 		<property name="numero" column="`NUMERO`" type="string" not-null="true" />
 		<property name="tipo" column="`TIPO`" type="string" not-null="true" />
-		
-		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`"/>			
+        <!-- <many-to-one name="endereco" class="Endereco" column="`ENDERECO_ID`" unique="true" /> -->
 	</class>
 </hibernate-mapping>

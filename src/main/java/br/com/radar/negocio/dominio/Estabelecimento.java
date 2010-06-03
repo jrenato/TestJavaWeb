@@ -1,6 +1,8 @@
 package br.com.radar.negocio.dominio;
 
-public class Estabelecimento {
+import java.io.Serializable;
+
+public class Estabelecimento implements Serializable {
 	private int id;
 	private String nome;
 	private Coordenada coordenada;
