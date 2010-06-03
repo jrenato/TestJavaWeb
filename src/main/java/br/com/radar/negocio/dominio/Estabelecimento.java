@@ -3,6 +3,8 @@ package br.com.radar.negocio.dominio;
 import java.io.Serializable;
 
 public class Estabelecimento implements Serializable {
+	private static final long serialVersionUID = 8421977567187545444L;
+
 	private int id;
 	private String nome;
 	private Coordenada coordenada;

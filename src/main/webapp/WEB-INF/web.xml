@@ -7,6 +7,7 @@
 
 	<display-name>Archetype Created Web Application</display-name>
 
+	<!-- 
 	<filter>
 		<filter-name>HibernateFilter</filter-name>
 		<filter-class>br.com.radar.util.HibernateFilter</filter-class>
@@ -20,7 +21,8 @@
         <filter-name>HibernateFilter</filter-name>
         <servlet-name>Faces Servlet</servlet-name>
     </filter-mapping>
-
+    -->
+ 
 	<!-- Faces Servlet -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>

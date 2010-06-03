@@ -31,7 +31,7 @@
                 </h:commandLink>
             </h:column>
         </h:dataTable>
-
+        
         <h:commandLink action="#{estabelecimentoBean.criar}">
             Cadastrar Novo Estabelecimento
         </h:commandLink>

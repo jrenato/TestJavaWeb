@@ -30,28 +30,17 @@
 	    <property name="bairro" column="`BAIRRO`" type="string" not-null="true" />
 	    <property name="cidade" column="`CIDADE`" type="string" not-null="true" />
 	    <property name="estado" column="`ESTADO`" type="string" not-null="true" />
-        <!-- 
-	    <set name="estabelecimentos" table="`ESTABELECIMENTO`" lazy="true" cascade="all" >
-	       <key column="`FK_ENDERECO_ID`" />
-	       <one-to-many class="Estabelecimento" />
-	    </set>
-	     -->
-	     
-        <!-- 
-        <set name="telefone" lazy="true" table="`TELEFONE`">
+        <set name="telefone" table="`TELEFONE`" lazy="true">
             <key column="`ENDERECO_ID`" />
-            <one-to-many class="Telefone"/>
+            <one-to-many class="Telefone" />
         </set>
-         -->
-
 	</class>
 	
    	<class name="Telefone" table="`TELEFONE`">
 		<id name="id" type="int" column="`ID`">
    			<generator class="increment" />
 		</id>
-		<property name="numero" column="`NUMERO`" type="string" not-null="true" />
+		<property name="numero" column="`TELEFONE`" type="string" not-null="true" />
 		<property name="tipo" column="`TIPO`" type="string" not-null="true" />
-        <!-- <many-to-one name="endereco" class="Endereco" column="`ENDERECO_ID`" unique="true" /> -->
-	</class>
+    </class>
 </hibernate-mapping>

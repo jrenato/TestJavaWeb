@@ -1,15 +1,18 @@
 package br.com.radar.negocio.dominio;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class Endereco implements Serializable {
+	private static final long serialVersionUID = 6577248025233160724L;
+
 	private int id;
 	private String logradouro;
 	private int numero;
 	private String bairro;
 	private String cidade;
 	private String estado;
-	//private List<Telefone> telefone;
+	private Set<Telefone> telefone;
 	
 	public int getId() {
 		return id;
@@ -47,12 +50,10 @@ public class Endereco implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	/*
-	public List<Telefone> getTelefone() {
+	public Set<Telefone> getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(List<Telefone> telefone) {
+	public void setTelefone(Set<Telefone> telefone) {
 		this.telefone = telefone;
 	}
-	*/
 }

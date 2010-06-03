@@ -5,12 +5,9 @@
  	"http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config>
 	
-    <!-- 
     <lifecycle>
-        <phase-listener>br.com.radar.utils.RenderResponsePhaseListener</phase-listener>
-        <phase-listener>br.com.radar.utils.RestoreViewPhaseListener</phase-listener>
+        <phase-listener>br.com.radar.util.HibernatePhaseListener</phase-listener>
     </lifecycle>	
-	 -->
 	 
 	<!-- Managed Bean de Estabelecimento -->
 	

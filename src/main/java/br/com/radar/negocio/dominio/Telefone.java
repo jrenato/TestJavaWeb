@@ -1,10 +1,14 @@
 package br.com.radar.negocio.dominio;
 
-public class Telefone {
+import java.io.Serializable;
+
+public class Telefone implements Serializable {
+	private static final long serialVersionUID = -1922981810616336460L;
+
 	private int id;
 	private String numero;
 	private String tipo;
-	private String endereco;
+	private Endereco endereco;
 	
 	public int getId() {
 		return id;
@@ -24,10 +28,10 @@ public class Telefone {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 }

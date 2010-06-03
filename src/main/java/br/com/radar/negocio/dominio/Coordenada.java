@@ -1,6 +1,10 @@
 package br.com.radar.negocio.dominio;
 
-public class Coordenada {
+import java.io.Serializable;
+
+public class Coordenada implements Serializable {
+	private static final long serialVersionUID = 8062972890447877158L;
+
 	private int id;
 	private Double latitude;
 	private Double longitude;

@@ -1,12 +1,17 @@
 package br.com.radar.apresentacao.managedbean;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
+import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import br.com.radar.negocio.dominio.Endereco;
 import br.com.radar.negocio.dominio.Estabelecimento;
+import br.com.radar.negocio.dominio.Telefone;
 import br.com.radar.negocio.servico.EstabelecimentoService;
 
 public class EstabelecimentoBean {
@@ -41,6 +46,15 @@ public class EstabelecimentoBean {
 
 		estabelecimentosModel.setWrappedData(estabelecimentos);
 		return estabelecimentosModel;
+	}
+
+	public DataModel<Telefone> getTelefones() {
+		DataModel<Telefone> l = new ListDataModel<Telefone>();
+		Set<Telefone> telefones = estabelecimentoSelecionado.getEndereco()
+				.getTelefone();
+		ArrayList al = new ArrayList<Telefone>(telefones);
+		l.setWrappedData(al);
+		return l;
 	}
 
 	public Estabelecimento getEstabelecimentoSelecionado() {
