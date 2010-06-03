@@ -2,6 +2,7 @@ package br.com.radar.apresentacao.managedbean;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -72,7 +73,9 @@ public class EstabelecimentoBean {
 
 	public String criar() {
 		this.estabelecimentoSelecionado = new Estabelecimento();
-		estabelecimentoSelecionado.setEndereco(new Endereco());
+		Endereco endereco = new Endereco();
+		endereco.setTelefone(new HashSet<Telefone>());
+		estabelecimentoSelecionado.setEndereco(endereco);
 		// retorna chave para a navegação
 		return "estabelecimentoSelecionado";
 	}
