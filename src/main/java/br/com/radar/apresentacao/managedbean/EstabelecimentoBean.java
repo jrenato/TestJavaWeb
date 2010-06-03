@@ -28,22 +28,6 @@ public class EstabelecimentoBean {
 
 	public DataModel<Estabelecimento> getEstabelecimentos() {
 		estabelecimentos = estabelecimentoService.obterEstabelecimentos();
-
-		/*
-		 * Ideia retirada daqui http://www.guj.com.br/posts/list/78781.java Mas
-		 * não deu certo, a sessão continua fechada quando chega aqui O problema
-		 * precisa ser resolvido em EstabelecimentoDAO, e não aqui
-		 * 
-		 * Error reading 'estabelecimentos' root cause
-		 * org.hibernate.LazyInitializationException: could not initialize proxy
-		 * - no Session
-		 */
-
-		/*
-		 * for (Estabelecimento e : estabelecimentos){
-		 * e.getEndereco().getLogradouro(); e.getEndereco().getNumero(); }
-		 */
-
 		estabelecimentosModel.setWrappedData(estabelecimentos);
 		return estabelecimentosModel;
 	}
@@ -59,6 +43,10 @@ public class EstabelecimentoBean {
 
 	public Estabelecimento getEstabelecimentoSelecionado() {
 		return estabelecimentoSelecionado;
+	}
+
+	public void setEstabelecimentoSelecionado(Estabelecimento estabelecimentoSelecionado) {
+		this.estabelecimentoSelecionado = estabelecimentoSelecionado;
 	}
 
 	public String selecionar() {
@@ -85,7 +73,6 @@ public class EstabelecimentoBean {
 	public String criar() {
 		this.estabelecimentoSelecionado = new Estabelecimento();
 		estabelecimentoSelecionado.setEndereco(new Endereco());
-
 		// retorna chave para a navegação
 		return "estabelecimentoSelecionado";
 	}

@@ -9,8 +9,9 @@
 	    	<generator class="increment" />
 	    </id>
 	    <property name="nome" column="`NOME`" type="string" not-null="true" />
-		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true" />
-        <many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" not-null="true" cascade="all" />       
+     
+		<many-to-one name="coordenada" class="Coordenada" column="`FK_COORDENADA_ID`" unique="true" cascade="all" lazy="false" />
+		<many-to-one name="endereco" class="Endereco" column="`FK_ENDERECO_ID`" unique="true" cascade="all" lazy="false" />       
 	</class>
 	
 	<class name="Coordenada" table="`COORDENADA`">
@@ -36,11 +37,11 @@
         </set>
 	</class>
 	
-   	<class name="Telefone" table="`TELEFONE`">
+   	<class name="Telefone" table="`TELEFONE`" lazy="false">
 		<id name="id" type="int" column="`ID`">
    			<generator class="increment" />
 		</id>
 		<property name="numero" column="`TELEFONE`" type="string" not-null="true" />
 		<property name="tipo" column="`TIPO`" type="string" not-null="true" />
-    </class>
+	</class>
 </hibernate-mapping>
