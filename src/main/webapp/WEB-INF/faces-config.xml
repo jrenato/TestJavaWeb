@@ -31,7 +31,28 @@
 			<from-outcome>estabelecimentoAtualizado</from-outcome>
 			<to-view-id>/estabelecimento.jsp</to-view-id>
 		</navigation-case>
-	</navigation-rule>	
+	</navigation-rule>
+	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>telefoneSelecionado</from-outcome>
+			<to-view-id>/telefoneEdit.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>telefoneAtualizado</from-outcome>
+			<to-view-id>/estabelecimentoEdit.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+			<navigation-rule>
+		<navigation-case>
+			<from-outcome>telefoneApagado</from-outcome>
+			<to-view-id>/estabelecimentoEdit.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<!-- Managed Bean de Pessoa -->
 	

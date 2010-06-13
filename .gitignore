@@ -1,5 +1,6 @@
 target/
 *~
+.tomcatplugin
 .classpath
 .project
 .settings/

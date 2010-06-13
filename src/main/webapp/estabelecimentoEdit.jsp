@@ -33,16 +33,29 @@
 			<h:inputText id="estado" value="#{estabelecimentoBean.estabelecimentoSelecionado.endereco.estado}" required="true" maxlength="2" />
 			<h:message for="estado" />
 
+			<h:outputText value="&nbsp;" escape="false" />
+	    	<h:commandButton value="Adicionar Telefone" action="#{estabelecimentoBean.criarTelefone}" />
+	    	
+	    	<br />
+
 	        <h:outputText value="Telefones:" />
 	        <h:dataTable id="dt2" value="#{estabelecimentoBean.telefones}" var="telefone" border="1">
 	            <h:column>
-	               <h:outputText value="#{telefone.numero}" />
+	               <h:commandLink action="#{estabelecimentoBean.selecionarTelefone}">
+	               		<h:outputText value="#{telefone.numero}" />
+	               	</h:commandLink>
 	               (<h:outputText value="#{telefone.tipo}" />)
 	            </h:column>
+	            <h:column>
+	            	<h:commandButton value="Apagar" action="#{estabelecimentoBean.apagarTelefone}" />
+	            </h:column>
 	        </h:dataTable>
+	        
+        <br />
+        <h:commandButton value="Confirmar Alterações" action="#{estabelecimentoBean.gravar}" />		
+		
 		</h:panelGrid>
 
-        <h:commandButton value="OK" action="#{estabelecimentoBean.gravar}" />
 	</h:form>
 </f:view>
 </body>

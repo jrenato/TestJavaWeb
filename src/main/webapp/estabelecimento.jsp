@@ -23,16 +23,12 @@
                 <h:outputText value="#{estabelecimento.endereco.logradouro}, #{estabelecimento.endereco.numero}" />
             </h:column>
             <h:column>
-                <f:facet name="header"><h:outputText value="Apagar" /></f:facet>
-                <h:commandLink action="#{estabelecimentoBean.apagar}">
-                    Delete-me
-                </h:commandLink>
+                <f:facet name="header"><h:outputText value="&nbsp;" escape="false" /></f:facet>
+                <h:commandButton value = "Apagar" action="#{estabelecimentoBean.apagar}" />
             </h:column>
         </h:dataTable>
         
-        <h:commandLink action="#{estabelecimentoBean.criar}">
-            Cadastrar Novo Estabelecimento
-        </h:commandLink>
+        <h:commandButton value="Novo" action="#{estabelecimentoBean.criar}" />
         
      </h:form>
    </f:view>

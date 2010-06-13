@@ -31,8 +31,8 @@
 	    <property name="bairro" column="`BAIRRO`" type="string" not-null="true" />
 	    <property name="cidade" column="`CIDADE`" type="string" not-null="true" />
 	    <property name="estado" column="`ESTADO`" type="string" not-null="true" />
-        <set name="telefone" table="`TELEFONE`" lazy="true">
-            <key column="`ENDERECO_ID`" />
+        <set name="telefone" table="`TELEFONE`" cascade="all">
+            <key column="`FK_ENDERECO_ID`" />
             <one-to-many class="Telefone" />
         </set>
 	</class>
