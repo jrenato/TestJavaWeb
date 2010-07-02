@@ -54,6 +54,11 @@
 		</navigation-case>
 	</navigation-rule>
 	
+	<validator>
+		<validator-id>telefoneValidator</validator-id>
+		<validator-class>br.com.radar.apresentacao.managedbean.TelefoneValidator</validator-class>
+	</validator>	
+	
 	<!-- Managed Bean de Pessoa -->
 	
 	<managed-bean>

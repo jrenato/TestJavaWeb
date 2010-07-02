@@ -10,7 +10,9 @@
 	<h:form id="form">
 		<h:panelGrid columns="3">
 			<h:outputText value="Número:" />
-			<h:inputText id="numero" value="#{estabelecimentoBean.telefoneSelecionado.numero}" required="true" maxlength="100" />
+			<h:inputText id="numero" value="#{estabelecimentoBean.telefoneSelecionado.numero}" required="true" maxlength="100">
+				<f:validator validatorId="telefoneValidator" />
+			</h:inputText>
             <h:message for="numero" />
 
 			<h:outputText value="Tipo:" />
